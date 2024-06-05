@@ -5,6 +5,7 @@ import api from "../../services/api";
 
 const Home = () => {
     const [filmes, setFilmes] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const loadFilmes = async () => {
@@ -17,11 +18,21 @@ const Home = () => {
                 
             })
             setFilmes(response.data.results)
+            setLoading(false);
             // console.log(response.data.results);
         }
 
         loadFilmes()
     },[])
+
+    if(loading){
+        return(
+            <div className="loading">
+                <h2>Carregando filmes....</h2>
+            </div>
+        )
+    }
+    
     return (
         <div className="container">
             <div className="lista-filmes">
