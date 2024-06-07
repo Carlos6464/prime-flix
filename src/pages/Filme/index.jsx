@@ -22,7 +22,7 @@ const Filme = () => {
             })
             .catch(() => {
                 console.log("Filme não encontrado");
-                navigate("/", {replace: true})
+                navigate("/prime-flix", {replace: true})
                 return;
             })
 
